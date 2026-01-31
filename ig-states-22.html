@@ -856,6 +856,16 @@ function updateCarousel() {
         document.getElementById('collected-count').textContent = collectedCount;
         document.getElementById('missing-count').textContent = 50 - collectedCount;
 
+        // Add "+ DC" to the appropriate legend text
+        const dcCollected = getUrls('dc').length > 0;
+        if (dcCollected) {
+            document.getElementById('collected-count').parentElement.innerHTML =
+                `Collected (<span id="collected-count">${collectedCount}</span> + DC)`;
+        } else {
+            document.getElementById('missing-count').parentElement.innerHTML =
+                `Still hunting (<span id="missing-count">${50 - collectedCount}</span> + DC)`;
+        }
+
         document.getElementById('modal-close').addEventListener('click', closeModal);
         modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
         document.addEventListener('keydown', (e) => { 
