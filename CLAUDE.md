@@ -14,13 +14,13 @@ README.md           # Brief project description
 CLAUDE.md           # This file
 ```
 
-### File Structure Within index.html
+### Structure Within index.html
 
-| Section | Lines | Description |
-|---------|-------|-------------|
-| CSS (`<style>`) | ~7-237 | All styles, responsive breakpoints |
-| HTML (`<body>`) | ~239-582 | SVG map, small-state boxes, modal markup |
-| JavaScript (`<script>`) | ~583-879 | Data, state management, UI logic |
+The file has three sections in order:
+
+1. **`<style>`** — All CSS styles and responsive breakpoints
+2. **`<body>` markup** — SVG map, small-state boxes, modal
+3. **`<script>`** — Data (`plates` object), state management, UI logic
 
 ## Tech Stack
 
@@ -31,7 +31,7 @@ CLAUDE.md           # This file
 
 ## Key Data Structure
 
-The `plates` object (line ~594) is the core data store mapping 2-letter state codes to Instagram URLs:
+The `plates` object at the top of the `<script>` block is the core data store mapping 2-letter state codes to Instagram URLs:
 
 ```javascript
 const plates = {
@@ -49,15 +49,15 @@ Both pipe-separated strings and arrays are supported for multiple URLs per state
 ### Adding a New License Plate
 
 1. Open `index.html`
-2. Find the `plates` object (~line 594)
+2. Find the `plates` object at the top of the `<script>` block
 3. Replace the empty string for the state with the Instagram post URL
 4. For additional plates on an already-collected state, append with ` | ` separator
 
 ### Modifying the UI
 
-- **CSS**: Edit the `<style>` block (lines ~7-237)
-- **HTML structure**: Edit the markup between `</style>` and `<script>` (lines ~239-582)
-- **JavaScript logic**: Edit the `<script>` block (lines ~583-879)
+- **CSS**: Edit the `<style>` block in `<head>`
+- **HTML structure**: Edit the body markup between `</style>` and `<script>`
+- **JavaScript logic**: Edit the `<script>` block at the end of `<body>`
 
 ### Testing Changes
 
@@ -96,7 +96,7 @@ Open `index.html` directly in a browser. No build step or dev server required.
 
 ## Small States
 
-Nine states are too small to click on the SVG map and are rendered as separate boxes: CT, DE, DC, MA, MD, NH, NJ, RI, VT. These are defined in the `smallStates` array (~line 664).
+Nine states are too small to click on the SVG map and are rendered as separate boxes: CT, DE, DC, MA, MD, NH, NJ, RI, VT. These are defined in the `smallStates` array in the `<script>` block.
 
 ## Development Workflow
 
