@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-License Plate Tracker is a single-page web application that displays an interactive SVG map of the United States, tracking license plates spotted in the wild from the Instagram account [@andkon](https://www.instagram.com/andkon/). Clicking a collected state opens an embedded Instagram post in a modal. Hosted on [GitHub Pages](https://andkonarcade.github.io/license-plate-tracker/).
+License Plate Tracker is a single-page web application that displays an interactive SVG map of the United States, tracking license plates spotted in the wild from the Instagram account [@andkon](https://www.instagram.com/andkon/). Clicking a collected state opens an embedded Instagram post in a modal. Hosted on [GitHub Pages](https://andkondev.github.io/license-plate-tracker/).
 
 ## Architecture
 
