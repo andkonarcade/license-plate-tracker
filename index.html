@@ -24,8 +24,12 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: stretch;
             padding: 40px 20px;
+        }
+        .page-header {
+            width: 100%;
+            text-align: center;
         }
         h1 { 
             color: #fff; 
@@ -54,6 +58,12 @@
         .map-wrapper { position: relative; width: min(100%, var(--map-max-desktop)); }
         .map-container { position: relative; width: 100%; }
         .map-container svg { width: 100%; height: auto; display: block; }
+        .map-stage {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
 
         @media (max-height: 500px) {
             body { padding: 15px 10px; }
@@ -91,7 +101,7 @@
         
 
 
-        /* Move small states below map on narrow, short, or mobile-landscape screens */
+        /* Move small states below map on narrow or short screens */
         @media (max-width: 700px), (max-height: 620px), ((hover: none) and (pointer: coarse) and (orientation: landscape) and (max-width: 1024px)) {
             .small-states {
                 position: relative;
@@ -117,19 +127,20 @@
                 align-items: center;
             }
         }
-        @media (hover: none) and (pointer: coarse) and (orientation: landscape) and (max-width: 1024px) {
+        /* Short-height fit mode: scale map by viewport height when needed */
+        @media (max-height: 760px) and (min-width: 900px), ((hover: none) and (pointer: coarse) and (orientation: landscape) and (max-width: 1024px)) {
             body {
                 padding: 16px 12px;
             }
             h1 {
-                margin-bottom: 6px;
+                margin-bottom: 4px;
             }
             .subtitle {
-                margin-bottom: 12px;
+                margin-bottom: 10px;
             }
-            .map-wrapper {
-                width: min(100%, calc((100vh - 160px) * var(--map-ratio)));
-                width: min(100%, calc((100dvh - 160px) * var(--map-ratio)));
+            .map-stage .map-wrapper {
+                width: min(var(--map-max-desktop), 100%, calc((100vh - 28px) * var(--map-ratio)));
+                width: min(var(--map-max-desktop), 100%, calc((100dvh - 28px) * var(--map-ratio)));
             }
             .legend {
                 margin-top: 18px;
@@ -227,6 +238,7 @@
             flex-wrap: wrap; 
             justify-content: center;
             font-size: 14px;
+            width: 100%;
         }
         .legend-item { display: flex; align-items: center; gap: 8px; }
         .legend-box { width: 20px; height: 20px; border-radius: 4px; }
@@ -266,11 +278,14 @@
     </style>
 </head>
 <body>
-    <h1>LICENSE PLATE COLLECTION</h1>
-    <p class="subtitle">curated from <a href="https://www.instagram.com/andkon/" target="_blank">@andkon</a>, made by <a href="https://andkon.dev" target="_blank">andkon.dev</a></p>
+    <div class="page-header">
+        <h1>LICENSE PLATE COLLECTION</h1>
+        <p class="subtitle">curated from <a href="https://www.instagram.com/andkon/" target="_blank">@andkon</a>, made by <a href="https://andkon.dev" target="_blank">andkon.dev</a></p>
+    </div>
 
-    <div class="map-wrapper">
-        <div class="map-container">
+    <section class="map-stage">
+        <div class="map-wrapper">
+            <div class="map-container">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 959 593" preserveAspectRatio="xMidYMid meet">
   <title>Blank map of the United States, territories not included</title>
 <defs>
@@ -563,20 +578,21 @@
 <path class="separator1" fill="none" d="m 215,493 v 55 l 36,45 m -251,-168 h 147 l 68,68 h 85 l 54,54 v 46"/>
 
 </svg>
-        </div>
+            </div>
 
-        <div class="small-states">
-            <div class="small-state-box" data-state="ct" title="Connecticut"><span class="abbr">CT</span></div>
-            <div class="small-state-box" data-state="de" title="Delaware"><span class="abbr">DE</span></div>
-            <div class="small-state-box" data-state="dc" title="District of Columbia"><span class="abbr">DC</span></div>
-            <div class="small-state-box" data-state="ma" title="Massachusetts"><span class="abbr">MA</span></div>
-            <div class="small-state-box" data-state="md" title="Maryland"><span class="abbr">MD</span></div>
-            <div class="small-state-box" data-state="nh" title="New Hampshire"><span class="abbr">NH</span></div>
-            <div class="small-state-box" data-state="nj" title="New Jersey"><span class="abbr">NJ</span></div>
-            <div class="small-state-box" data-state="ri" title="Rhode Island"><span class="abbr">RI</span></div>
-            <div class="small-state-box" data-state="vt" title="Vermont"><span class="abbr">VT</span></div>
+            <div class="small-states">
+                <div class="small-state-box" data-state="ct" title="Connecticut"><span class="abbr">CT</span></div>
+                <div class="small-state-box" data-state="de" title="Delaware"><span class="abbr">DE</span></div>
+                <div class="small-state-box" data-state="dc" title="District of Columbia"><span class="abbr">DC</span></div>
+                <div class="small-state-box" data-state="ma" title="Massachusetts"><span class="abbr">MA</span></div>
+                <div class="small-state-box" data-state="md" title="Maryland"><span class="abbr">MD</span></div>
+                <div class="small-state-box" data-state="nh" title="New Hampshire"><span class="abbr">NH</span></div>
+                <div class="small-state-box" data-state="nj" title="New Jersey"><span class="abbr">NJ</span></div>
+                <div class="small-state-box" data-state="ri" title="Rhode Island"><span class="abbr">RI</span></div>
+                <div class="small-state-box" data-state="vt" title="Vermont"><span class="abbr">VT</span></div>
+            </div>
         </div>
-    </div>
+    </section>
 
     <div class="legend">
         <div class="legend-item">
