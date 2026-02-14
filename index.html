@@ -40,6 +40,15 @@
             text-align: center;
             font-size: clamp(1.55rem, 1.1rem + 2.2vw, 3rem);
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35em;
+        }
+        .title-icon {
+            width: 1.2em;
+            height: auto;
+            flex-shrink: 0;
         }
         .subtitle {
             margin-bottom: clamp(10px, 1.8vh, 18px);
@@ -279,7 +288,7 @@
 </head>
 <body>
     <div class="page-header">
-        <h1>LICENSE PLATE COLLECTION</h1>
+        <h1><img class="title-icon" src="./license-plate-icon.svg" alt="" aria-hidden="true">LICENSE PLATE COLLECTION</h1>
         <p class="subtitle">curated from <a href="https://www.instagram.com/andkon/" target="_blank">@andkon</a>, made by <a href="https://andkon.dev" target="_blank">andkon.dev</a></p>
     </div>
 
